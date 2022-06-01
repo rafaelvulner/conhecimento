@@ -1,6 +1,6 @@
 package com.teste.balada.repository;
 
-import com.teste.balada.entities.BaladaEntity;
+import com.teste.balada.entity.BaladaEntity;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Repository;
