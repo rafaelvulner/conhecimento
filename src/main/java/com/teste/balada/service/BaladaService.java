@@ -1,6 +1,6 @@
 package com.teste.balada.service;
 
-import com.teste.balada.entities.BaladaEntity;
+import com.teste.balada.entity.BaladaEntity;
 import com.teste.balada.repository.BaladaRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;

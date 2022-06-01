@@ -1,6 +1,6 @@
 package com.teste.balada.controller;
 
-import com.teste.balada.entities.BaladaEntity;
+import com.teste.balada.entity.BaladaEntity;
 import com.teste.balada.service.BaladaService;
 import java.util.List;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,11 +19,13 @@ public class BaladaController {
   private BaladaService service;
 
   public BaladaController(BaladaService service) {
+
     this.service = service;
   }
 
   @GetMapping
   public List<BaladaEntity> getConhecimentos(){
+
     return this.service.getConhecimento();
   }
 
