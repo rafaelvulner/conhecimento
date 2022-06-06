@@ -14,25 +14,39 @@ public class BaladaService {
     this.repository = repository;
   }
 
-  public List<BaladaEntity> getConhecimento(){
-    return this.repository.getConhecimento();
+  public List<BaladaEntity> findConhecimentoAll(){
+    return this.repository.findAll();
   }
 
   public String postConhecimento(BaladaEntity conhecimento){
+      this.repository.save(conhecimento);
+      return "Adicionado com sucesso!";
 
-    this.repository.postConhecimento(conhecimento);
-    return "Adicionado com sucesso!";
   }
 
   public String putConhecimento(Integer id, BaladaEntity conhecimento){
+      this.isExist(id);
+      this.repository.save(conhecimento);
+      return "Editado com sucesso";
 
-    this.repository.putConhecimento(id, conhecimento);
-    return "Atualizado com sucesso!";
   }
 
   public String deleteConhecimento(Integer id){
+      this.isExist(id);
+      this.repository.deleteById(id);
+      return "Deletado com sucesso";
 
-    this.repository.deleteConhecimento(id);
-    return "Deletado com sucesso! ";
   }
+
+  private void isExist(Integer id) {
+    if (!this.repository.existsById(id))
+      throw new RuntimeException("Usuario não existe");
+  }
+
+    public String verificaIdade(BaladaEntity conhecimento) {
+        if(conhecimento.getIdade() < 18){
+            return "É proibido a entrada de pessoas com menos de 18 anos.";
+        }
+        return null;
+    }
 }

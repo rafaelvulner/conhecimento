@@ -1,40 +1,11 @@
 package com.teste.balada.repository;
 
 import com.teste.balada.entity.BaladaEntity;
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class BaladaRepository {
+public interface BaladaRepository extends JpaRepository<BaladaEntity, Integer> {
 
-  private List<BaladaEntity> entityList = new ArrayList<>();
-
-  public List<BaladaEntity> getConhecimento(){
-    return this.entityList;
-  }
-
-  public String postConhecimento(BaladaEntity conhecimento){
-
-    this.entityList.add(conhecimento);
-    return "Adicionado com sucesso!";
-  }
-
-  public String putConhecimento(Integer id, BaladaEntity conhecimento){
-
-    if(this.entityList.contains(conhecimento)){
-      this.entityList.get(id).setNome(conhecimento.getNome());
-      this.entityList.get(id).setIdade(conhecimento.getIdade());
-    }else{
-      return "Esse cara não existe! ";
-    }
-    return "Atualizado com sucesso!";
-  }
-
-  public String deleteConhecimento(Integer id){
-
-    this.entityList.remove(id);
-    return "Deletado com sucesso! ";
-  }
-
+    void deleteById(Integer id);
 }
