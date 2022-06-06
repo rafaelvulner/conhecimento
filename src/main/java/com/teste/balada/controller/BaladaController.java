@@ -20,19 +20,12 @@ public class BaladaController {
   @PostMapping
   public String postConhecimento(@RequestBody BaladaEntity conhecimento){
 
-    String x = this.service.verificaIdade(conhecimento);
-    if (x != null) {
-      return x;
-    }
     return this.service.postConhecimento(conhecimento);
   }
 
   @PutMapping("/{id}")
   public String putConhecimento(@PathVariable("id") Integer id, @RequestBody BaladaEntity conhecimento){
-    String x = this.service.verificaIdade(conhecimento);
-    if (x != null) {
-      return x;
-    }
+
     return this.service.putConhecimento(id, conhecimento);
   }
 
