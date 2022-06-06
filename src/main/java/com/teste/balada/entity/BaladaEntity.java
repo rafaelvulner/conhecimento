@@ -1,7 +1,10 @@
 package com.teste.balada.entity;
 
+
 import lombok.*;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+import javax.persistence.*;
+import javax.persistence.Id;
 
 @Getter
 @Setter
@@ -9,12 +12,14 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 @NoArgsConstructor
 @Builder
 @ToString
-@EntityScan
+@Entity
 public class BaladaEntity {
 
-  public Integer id;
+  @Id
+  private Integer id;
 
-  public String nome;
+  private String nome;
 
-  public Integer idade;
+  private Integer idade;
+
 }
